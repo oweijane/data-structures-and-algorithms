@@ -17,9 +17,9 @@ class Tree:
 
     THE TREE STRUCTURE USED IN THIS FILE IS:
 
-               1
-        2            5
-     3     4      6     7
+               4
+        2            6
+     1     3      5     7
 
     '''
     def __init__(self):
@@ -31,14 +31,14 @@ class Tree:
         n6 = Node(6)
         n7 = Node(7)
         
-        n1.left = n2
-        n2.left = n3
-        n2.right = n4
-        n1.right = n5
-        n5.left = n6
-        n5.right = n7
+        n4.left = n2
+        n2.left = n1
+        n2.right = n3
+        n4.right = n6
+        n6.left = n5
+        n6.right = n7
 
-        self.root = n1
+        self.root = n4
 
     def __str__(self):
         return str(self.root.val)
@@ -183,6 +183,34 @@ def iterative_postorder2(root: Node) -> list:
     return res
 
 
+def morris_inorder_traversal(root: Node):
+    '''
+    Time: O(n)
+    Space: O(1)
+    '''
+    def findPredecessor(root: Node):
+        curr = root.left
+        while curr.right and curr.right != root:
+            curr = curr.right
+        return curr
+
+    res = []
+    while root:
+        if root.left:
+            predecessor = findPredecessor(root)
+            if predecessor.right:
+                predecessor.right = None
+                res.append(root)
+                root = root.right
+            else:
+                predecessor.right = root
+                root = root.left
+        else:
+            res.append(root)
+            root = root.right
+    return res
+
+
 if __name__ == '__main__':
     root = Tree().root
 
@@ -205,5 +233,12 @@ if __name__ == '__main__':
     print(recursive_postorder(root))
     print(iterative_postorder1(root))
     print(iterative_postorder2(root))
+    print()
+    print()
+
+
+    # MORRIS
+    print('MORRIS INORDER')
+    print(morris_inorder_traversal(root))
     print()
     print()
