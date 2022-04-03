@@ -1,5 +1,0 @@
-from utils.examples import GRAPH
-from shortest_path.all_pairs.slow_all_pairs_shortest_paths import slow_all_pairs_shortest_path
-
-
-slow_all_pairs_shortest_path(GRAPH)
