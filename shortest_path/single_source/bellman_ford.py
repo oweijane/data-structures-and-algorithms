@@ -1,14 +1,17 @@
 from math import inf
 
 
-def bellman_ford(adjacency_matrix, source):
+def bellman_ford(adjacency_matrix, source, initial_shortest_d=None):
     '''
     returns None if negative cycle exists
     adjacency_matrix represents a weighted graph
     '''
     number_of_vertices = len(adjacency_matrix)
-    shortest_d = [inf] * number_of_vertices
-    shortest_d[source] = 0
+    if initial_shortest_d == None:
+        shortest_d = [inf] * number_of_vertices
+        shortest_d[source] = 0
+    else:
+        shortest_d = initial_shortest_d
     for _ in range(number_of_vertices - 1):
         for i in range(number_of_vertices):
             for j in range(number_of_vertices):
