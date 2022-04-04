@@ -5,7 +5,7 @@ from utils.printing import print_matrix
 def fast(adjacency_matrix):
     '''
     Uses Dynamic Programming to solve the all-pairs shortest paths problem
-    adjancency_matrix represents a weighted graph
+    adjacency_matrix represents a weighted graph
     '''
     number_of_vertices = len(adjacency_matrix)
     dp = adjacency_matrix

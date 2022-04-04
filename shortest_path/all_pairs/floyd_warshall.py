@@ -5,7 +5,7 @@ from utils.matrix import add_ones
 
 def floyd_washall(adjacency_matrix):
     '''
-    adjancency_matrix represents a weighted graph
+    adjacency_matrix represents a weighted graph
     '''
     number_of_vertices = len(adjacency_matrix)
     dp = adjacency_matrix
