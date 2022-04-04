@@ -27,5 +27,5 @@ def floyd_washall(adjacency_matrix):
                     new_predecessor[i][j] = predecessor[i][j]
         dp, predecessor = new_dp, new_predecessor
         print_matrix(dp, k + 1)
-    add_ones(predecessor)
+    add_ones(predecessor) # Just to make predecessor 1-indexable
     return dp, predecessor
