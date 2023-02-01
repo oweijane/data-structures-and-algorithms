@@ -1,4 +1,4 @@
-def sieve_optimal(N):
+def sieve(N):
     res = [True] * (N + 1)
     res[0] = res[1] = False
     i = 2
