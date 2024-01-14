@@ -13,7 +13,7 @@ def lps(pattern):
 def kmp(string, pattern):
     N, M = len(string), len(pattern)
     if N < M:
-        return False
+        return []
     lps_array = lps(pattern)
     res = []
     j = 0
@@ -29,4 +29,4 @@ def kmp(string, pattern):
 if __name__ == '__main__':
     string = 'abaabaa'
     pattern = 'abaa'
-    print(kmp(string, pattern))
+    print(kmp(string, pattern)) # [0, 3]
